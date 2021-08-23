@@ -5,10 +5,8 @@ import { Carousel } from './components/Carousel';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>hola reina</Text>
       <Carousel/>
-    </View>
+    
   );
 }
 
@@ -18,5 +16,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });
