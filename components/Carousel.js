@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Image, Button, ActivityIndicator } from "react-native";
+import { StyleSheet, Text, View, Image, Button } from "react-native";
 
 export const Carousel = () => {
     const [block, setBlock] = useState(0);
@@ -21,33 +21,33 @@ export const Carousel = () => {
         let b = block - 1
         setBlock(b)
         await AsyncStorage.setItem('BLOCK', b)
-        let imagen = urls(data, b)
-        setUrl(imagen)
-        AsyncStorage.setItem('URL', imagen)
+        let image = urls(data, b)
+        setUrl(image)
+        AsyncStorage.setItem('URL', image)
     }
     const handleStart =() =>{
         setLoading(false)
     }
-    const urls = (a, b) => {
-        return a[b].images[Math.floor(Math.random() * 100 % (a[b].images.length))]
+    const urls = (array, index ) => {
+        return array[index].images[Math.floor(Math.random() * 100 % (array[index].images.length))]
     }
 
     useEffect(async() => {
-        const laurl = await AsyncStorage.getItem('URL')
-        const elblock = await AsyncStorage.getItem('BLOCK')
+        const urlStorage = await AsyncStorage.getItem('URL')
+        const blockStorage = await AsyncStorage.getItem('BLOCK')
         
         fetch(`https://testapi.io/api/juancdri/sports`)
             .then((response) => response.json())
             .then((json) => {
                 setData(json)
-                if (laurl == null) {
+                if (urlStorage == null) {
                     AsyncStorage.setItem('BLOCK', block)
                     let imagen = urls(json, block)
                     setUrl(imagen)
                     AsyncStorage.setItem('URL', imagen)
                 } else {
-                    setUrl(laurl)
-                    setBlock(elblock)
+                    setUrl(urlStorage)
+                    setBlock(blockStorage)
                 }})
             .catch((error) => console.error(error))
 
