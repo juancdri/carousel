@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     bt: {
-        marginBottom: 20,
+        marginBottom: 21,
         marginTop: 20
     },
     start: {
