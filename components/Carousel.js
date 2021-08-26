@@ -59,7 +59,6 @@ export const Carousel = () => {
     };
 
     useEffect(() => {
-        console.log(data);
         if (data) {
             if (url === "") {
                 Storage.setItem({
