@@ -1,4 +1,3 @@
-// import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Storage } from "expo-storage";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image, Button } from "react-native";
