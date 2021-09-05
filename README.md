@@ -1,4 +1,4 @@
-# Carousel App - Extreme-Sports
+# Carousel App - React Native
 
 
 ## Presentación
